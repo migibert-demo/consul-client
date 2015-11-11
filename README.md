@@ -7,3 +7,11 @@ sudo docker run -d --name node3 -h node3 progrium/consul -server -join $JOIN_IP
 
 # local agent
 sudo docker run -d -p 8400:8400 -p 8500:8500 -p 8600:53/udp --name node4 -h node4 progrium/consul -join $JOIN_IP
+
+http://localhost:8500/ui/
+-> service registered
+-> key value edition
+
+dig @0.0.0.0 -p 8600 consul.service.consul
+dig @0.0.0.0 -p 8600 MyDeadService.service.consul
+dig @0.0.0.0 -p 8600 MyLivingService.service.consul
